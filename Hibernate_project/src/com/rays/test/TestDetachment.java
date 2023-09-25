@@ -19,7 +19,7 @@ public class TestDetachment {
 
 		session.close();
 
-		item.setDescription("option1");
+		item.setDescription("option 1");
 
 		Session session2 = sf.openSession();
 

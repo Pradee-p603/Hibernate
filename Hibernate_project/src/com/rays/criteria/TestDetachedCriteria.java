@@ -17,7 +17,7 @@ public class TestDetachedCriteria {
 
 		DetachedCriteria dc = DetachedCriteria.forClass(UserDTO.class);
 
-		dc.add(Restrictions.eq("firstName", "shivanshi"));
+		dc.add(Restrictions.eq("firstName", "aman"));
 
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 

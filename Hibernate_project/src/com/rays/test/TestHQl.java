@@ -4,19 +4,22 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.classic.Session;
 
 import com.rays.dto.UserDTO;
 
-public class TestHQl {
+public class TestHQL {
+
 	public static void main(String[] args) {
 
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 
 		Session session = sf.openSession();
+
 		Transaction tx = session.beginTransaction();
 
 		Query q = session.createQuery("from UserDTO");
@@ -26,20 +29,23 @@ public class TestHQl {
 		Iterator it = list.iterator();
 
 		while (it.hasNext()) {
+
 			UserDTO dto = (UserDTO) it.next();
 
+			System.out.print(dto.getId());
 			System.out.print("\t" + dto.getFirstName());
 			System.out.print("\t" + dto.getLastName());
-			System.out.print("\t" + dto.getId());
 			System.out.print("\t" + dto.getLoginId());
 			System.out.print("\t" + dto.getPassword());
 			System.out.print("\t" + dto.getDob());
-			System.out.println(dto.getAddress());
+			System.out.println("\t" + dto.getAddress());
 
 		}
 
 		tx.commit();
-		sf.close();
+
+		session.close();
+
 	}
 
 }

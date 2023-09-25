@@ -24,9 +24,9 @@ public class TestCriteriaAnd {
 
 		Criteria criteria = session.createCriteria(UserDTO.class);
 
-		criteria.add(Restrictions.like("firstName", "s%"));
+		criteria.add(Restrictions.like("firstName", "a%"));
 
-		criteria.add(Restrictions.like("lastName", "d%"));
+		criteria.add(Restrictions.like("lastName", "l%"));
 
 		List list = criteria.list();
 
